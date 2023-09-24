@@ -4,7 +4,7 @@ import { taskListReducer } from './taskList/taskList.slice'
 
 export const store = configureStore({
   reducer: {
-    taskList: taskListReducer,
+    taskLists: taskListReducer,
   },
 })
 

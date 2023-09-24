@@ -1,21 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import { Task, TaskListState } from './types';
+import { TaskList, TaskListsState } from './types';
 
 export interface CounterState {
   value: number
 }
 
-const initialState: TaskListState = {
-  taskList: [],
+const initialState: TaskListsState = {
+  taskLists: [],
 };
 
 export const taskListSlice = createSlice({
   name: 'taskList',
   initialState,
   reducers: {
-    add: (state, action: PayloadAction<Task>) => {
-      state.taskList = [...state.taskList, action.payload];
+    add: (state, action: PayloadAction<TaskList>) => {
+      state.taskLists = [...state.taskLists, action.payload];
     },
   }
 })

@@ -1,9 +1,9 @@
-export type Task = {
+export type TaskList = {
     id: string,
-    name: string,
+    title: string,
     created: string,
 }
 
-export interface TaskListState {
-    taskList: Task[];
+export interface TaskListsState {
+    taskLists: TaskList[];
 }
