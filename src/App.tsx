@@ -1,13 +1,13 @@
 import './App.css'
-import { useAppDispatch, useAppSelector } from './store/hooks'
+import { useAppDispatch } from './store/hooks'
 import { useState } from 'react';
 import Form from './components/Form';
+import Board from './components/Board/Board';
 
 let value = 0;
 const uuid = () => { value = value + 1; return value };
 
-function App() {
-  const { taskLists } = useAppSelector((state) => state.taskLists);
+const App: React.FC = () => {
   const dispatch = useAppDispatch();
   const [showForm, setShowForm] = useState(false);
 
@@ -31,7 +31,8 @@ function App() {
           + Add another list
         </button >
       }
-      {taskLists.map((list) => (<div id={list.id}>{list.title}</div>))}
+
+      <Board />
     </>
   );
 };
