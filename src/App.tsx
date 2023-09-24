@@ -4,9 +4,7 @@ import { useState } from 'react';
 import Form from './components/Form';
 import Board from './components/Board/Board';
 import { add } from './store/taskList/taskList.slice';
-
-let value = 0;
-const uuid = () => { value = value + 1; return value };
+import { uuid } from './generator'
 
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
