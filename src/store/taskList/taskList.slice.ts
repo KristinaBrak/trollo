@@ -17,9 +17,12 @@ export const taskListSlice = createSlice({
     add: (state, action: PayloadAction<TaskList>) => {
       state.taskLists = [...state.taskLists, action.payload];
     },
+    remove: (state, action: PayloadAction<TaskList['id']>) => {
+      state.taskLists = state.taskLists.filter((list) => list.id !== action.payload);
+    }
   }
 })
 
-export const { add } = taskListSlice.actions
+export const { add, remove } = taskListSlice.actions
 
 export const { reducer: taskListReducer } = taskListSlice

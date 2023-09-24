@@ -1,6 +1,15 @@
 .board {
     display: flex;
     flex-direction: row;
-    text-decoration: none;
+    column-gap: 20px;
+    padding: 0;
+}
 
+.taskListItem {
+    width: 100%;
+    max-width: 20%;
+    border: 1px solid black;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
 }

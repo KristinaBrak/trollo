@@ -11,7 +11,7 @@ const Form: React.FC<FormProps> = ({ onSubmit, onCancel }) => {
         <form onSubmit={() => onSubmit(name)} onReset={onCancel}>
             <input type="text" value={name} onChange={(event) => setName(event.target.value)} />
             <button type="submit">Create</button>
-            <button>Cancel</button>
+            <button type="reset">Cancel</button>
         </form>
     )
 };

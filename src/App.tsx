@@ -3,6 +3,7 @@ import { useAppDispatch } from './store/hooks'
 import { useState } from 'react';
 import Form from './components/Form';
 import Board from './components/Board/Board';
+import { add } from './store/taskList/taskList.slice';
 
 let value = 0;
 const uuid = () => { value = value + 1; return value };
@@ -13,14 +14,11 @@ const App: React.FC = () => {
 
   const handleSubmit = (title: string) => {
     setShowForm(false);
-    dispatch({
-      type: 'taskList/add',
-      payload: {
-        id: uuid(),
-        title,
-        created: new Date().toUTCString(),
-      }
-    });
+    dispatch(add({
+      id: String(uuid()),
+      title,
+      created: new Date().toUTCString(),
+    }));
   };
 
   return (
@@ -28,7 +26,7 @@ const App: React.FC = () => {
       {showForm ?
         <Form onSubmit={handleSubmit} onCancel={() => setShowForm(false)} />
         : <button onClick={() => setShowForm((prev) => !prev)}>
-          + Add another list
+          + Add list
         </button >
       }
 
