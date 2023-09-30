@@ -1,0 +1,25 @@
+
+dialog {
+    max-width: 300px;
+    max-height: auto;
+}
+
+.item {
+    margin: 8px 0 0 0;
+}
+
+.item p {
+    margin: 0;
+}
+
+.item textarea {
+    width: 100%;
+    max-width:  100%;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    margin: 16px 0 4px;
+    width: 104px;
+}

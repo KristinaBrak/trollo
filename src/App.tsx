@@ -5,6 +5,7 @@ import Form from './components/Form';
 import Board from './components/Board/Board';
 import { add } from './store/taskList/taskList.slice';
 import { uuid } from './generator'
+import TaskCreator from './components/TaskCreator';
 
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -28,7 +29,9 @@ const App: React.FC = () => {
         </button >
       }
 
+      <TaskCreator />
       <Board />
+
     </>
   );
 };
