@@ -10,7 +10,11 @@ const Board: React.FC = () => {
     return (
         <ul className='board'>
             {taskLists.map((list) => (<li className='taskListItem' id={list.id}><span>
-                {list.title}</span><button onClick={() => dispatch(remove(list.id))}>X</button></li>))}
+                {list.title}</span>
+                {!list.default && 
+                    <button onClick={() => dispatch(remove(list.id))}>X</button>
+                }
+                </li>))}
         </ul>
     );
 };

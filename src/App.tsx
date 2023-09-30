@@ -15,7 +15,7 @@ const App: React.FC = () => {
     dispatch(add({
       id: String(uuid()),
       title,
-      created: new Date().toUTCString(),
+      created: new Date().toISOString(),
     }));
   };
 
