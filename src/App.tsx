@@ -13,25 +13,21 @@ const App: React.FC = () => {
 
   const handleSubmit = (title: string) => {
     setShowForm(false);
-    dispatch(add({
-      id: String(uuid()),
-      title,
-      created: new Date().toISOString(),
-    }));
+    dispatch(add(title));
   };
 
   return (
     <>
+      <TaskCreator />
       {showForm ?
         <Form onSubmit={handleSubmit} onCancel={() => setShowForm(false)} />
-        : <button onClick={() => setShowForm((prev) => !prev)}>
+        : (
+        <button onClick={() => setShowForm((prev) => !prev)}>
           + Add list
         </button >
-      }
+      )}
 
-      <TaskCreator />
       <Board />
-
     </>
   );
 };

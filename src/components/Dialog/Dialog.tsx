@@ -3,20 +3,35 @@ import './dialog.css';
 
 type DialogProps = {
     open: boolean;
-    onOpen: () => void;
-    onClose: () => void;
+    onSubmit: (name: string, description: string) => void;
+    onCancel: () => void;
 }
-const Dialog: React.FC<DialogProps> = ({ open , onOpen, onClose}) => {
+const Dialog: React.FC<DialogProps> = ({ open , onSubmit, onCancel}) => {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
+
+    const resetFields = () => {
+        setName('');
+        setDescription('');
+    };
+
+    const handleSubmit = () => {
+        onSubmit(name, description);
+        resetFields();
+    };
+
+    const handleCancel = () => {
+        onCancel();
+        resetFields();
+    }
 
     return (
         <dialog open={open} title='Create a task' >
             <h1>Create a task</h1>
             <form 
                 method="dialog"
-                onSubmit={onClose}
-                onReset={onClose}
+                onSubmit={handleSubmit}
+                onReset={handleCancel}
                 >
                 <div className='item'>
                     <p>name</p>

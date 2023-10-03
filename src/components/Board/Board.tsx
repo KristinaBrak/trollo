@@ -8,14 +8,25 @@ const Board: React.FC = () => {
     const dispatch = useAppDispatch();
 
     return (
-        <ul className='board'>
-            {taskLists.map((list) => (<li className='taskListItem' id={list.id}><span>
-                {list.title}</span>
-                {!list.default && 
-                    <button onClick={() => dispatch(remove(list.id))}>X</button>
-                }
-                </li>))}
-        </ul>
+        <div className='board'>
+            {taskLists.map((list) => (
+                <div className='taskListItem' id={list.id}>
+                    <div id={list.id}>
+                        <div className="heading">
+                            <span>{list.title}</span>
+                            {!list.default && 
+                                <button onClick={() => dispatch(remove(list.id))}>X</button>
+                            }
+                        </div>
+                    </div>
+                    <ul>
+                        {list.tasks.map((task) => (
+                            <li id={task.id}>{task.name}</li>
+                        ))}
+                    </ul>
+                </div>)
+            )}
+        </div>
     );
 };
 
