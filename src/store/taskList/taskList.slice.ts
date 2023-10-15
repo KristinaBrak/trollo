@@ -49,6 +49,6 @@ export const taskListSlice = createSlice({
   }
 })
 
-export const { add, remove, addTask } = taskListSlice.actions
+export const { add, remove, addTask } = taskListSlice.actions;
 
-export const { reducer: taskListReducer } = taskListSlice
+export const { reducer: taskListReducer } = taskListSlice;

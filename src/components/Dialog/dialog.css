@@ -1,7 +1,11 @@
-
 dialog {
     max-width: 300px;
-    max-height: auto;
+
+}
+
+dialog::backdrop {
+    background-color: #000;
+    opacity: 0.75;
 }
 
 .item {

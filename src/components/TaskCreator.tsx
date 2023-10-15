@@ -1,24 +1,23 @@
-import React, {useState} from 'react';
-import Dialog from './Dialog';
-import { useAppDispatch } from '../store/hooks';
+import React from 'react';
+import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { addTask } from '../store/taskList/taskList.slice';
+import { Dialog } from './Dialog/Dialog';
+import { addTaskDialog } from '../store/ui/dialog.slice';
 
 const TaskCreator = () => {
-    const [showModal, setShowModal] = useState(false);
+    const { addTask: dialog } = useAppSelector((state) => state.dialog) 
     const dispatch = useAppDispatch()
-
-    const closeModal = () => setShowModal(false);
+    const closeDialog = () =>  dispatch(addTaskDialog(false));
 
     const handleSubmit = (name: string, description:string) => {
         dispatch(addTask({name, description}))
-        closeModal();
+        closeDialog();
     };
-
 
     return (
         <>
-            <button onClick={() => setShowModal(true)}>+ Add task</button>
-            <Dialog open={showModal} onSubmit={handleSubmit} onCancel={closeModal}/> 
+            <button onClick={() => dispatch(addTaskDialog(true))}>+ Add task</button>
+            <Dialog title='Create a task' open={dialog.open} disabled={dialog.disabled} onSubmit={handleSubmit} onCancel={closeDialog}/> 
         </>
     )
 };

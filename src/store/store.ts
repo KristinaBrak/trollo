@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { taskListReducer } from './taskList/taskList.slice'
+import { dialogReducer } from './ui/dialog.slice'
 
 
 export const store = configureStore({
   reducer: {
     taskLists: taskListReducer,
+    dialog: dialogReducer,
   },
 })
 

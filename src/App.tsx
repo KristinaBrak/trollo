@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Form from './components/Form';
 import Board from './components/Board/Board';
 import { add } from './store/taskList/taskList.slice';
-import { uuid } from './generator'
+import { uuid } from './generator';
 import TaskCreator from './components/TaskCreator';
 
 const App: React.FC = () => {
@@ -27,7 +27,7 @@ const App: React.FC = () => {
         </button >
       )}
 
-      <Board />
+      <Board/>
     </>
   );
 };
