@@ -1,29 +1,108 @@
-dialog {
-    max-width: 300px;
-
+:root {
+    --input-font-size: 78px;
 }
+
+dialog {
+    max-width: 400px;
+    width: 360px;;
+    border-radius: 6px;
+}
+
+
 
 dialog::backdrop {
     background-color: #000;
     opacity: 0.75;
 }
 
-.item {
-    margin: 8px 0 0 0;
-}
+/* Dialog header */
 
-.item p {
+dialog h1 {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color:#303030;
+    font-size: 24px;
+    font-weight: normal;
+    padding: 0;
     margin: 0;
 }
 
-.item textarea {
+dialog header {
+    margin-bottom: 24px;
+}
+
+.item {
+    margin: 16px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.item label {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    color:#303030;
+    margin: 0;
+    margin-bottom: 6px;
+}
+
+.item-input {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    height: 24px;
+    font-size: 16px;
+    background-color: hsl(240, 89%, 98%);
+    border: 0.5px solid gray;
+    border-radius: 2px;
     width: 100%;
     max-width:  100%;
 }
 
 .actions {
     display: flex;
-    justify-content: space-between;
+    width: 100%;
+    gap: 8px;
     margin: 16px 0 4px;
     width: 104px;
+}
+
+button.main{
+    background-color: hsl(240, 89%, 65%);
+    color: white;
+    height: 32px;
+    font-size: 16px;
+    padding: 4px 16px;
+    border-radius: 6px;
+    min-width: var(--input-font-size);
+    border: 1px solid hsl(240, 85%, 58%);
+}
+
+button.main:hover{
+    background-color: hsl(240, 89%, 70%);
+    cursor: pointer;
+}
+
+button.main:active{
+    background-color: hsl(240, 89%, 60%);
+    box-shadow: 1px 1px 1px hsl(240, 89%, 85%);
+    cursor: pointer;
+}
+
+button.secondary {
+    background-color: white;
+    color: rgb(55, 55, 239);
+    height: 32px;
+    font-size: 16px;
+    padding: 4px 16px;
+    min-width: var(--input-font-size);
+    border-radius: 6px;
+    border: 1px solid rgb(55, 55, 239);
+}
+
+button.secondary:hover{
+    background-color: hsl(240, 89%, 95%);
+    cursor: pointer;
+}
+
+button.secondary:active{
+    background-color: hsl(240, 89%, 90%);
+    box-shadow: 1px 1px 1px hsl(240, 89%, 85%);
+    cursor: pointer;
 }
